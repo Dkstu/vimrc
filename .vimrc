@@ -17,7 +17,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 Plugin 'tpope/vim-surround'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'Townk/vim-autoclose'
@@ -32,7 +32,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'stephpy/vim-php-cs-fixer'
-Plugin 'lvht/phpcd.vim'
+" Plugin 'lvht/phpcd.vim'
 
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'tpope/vim-haml'
@@ -141,9 +141,9 @@ set ignorecase                        " ignore case when searching
 set smartcase
 set smarttab                          " insert tabs on the start of a line according to
 set expandtab                         " replace <TAB> with spaces
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
 set shortmess=Ia                      " remove splash wording
 
 " disable sound on errors
@@ -172,7 +172,8 @@ set wildignore+=tmp/**
 " theme
 syntax on                             " syntax highlight
 let base16colorspace=256
-colorscheme base16-tomorrow-night
+" colorscheme base16-tomorrow-night
+set background=dark
 " source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
 " cursorline switched while focus is switched to another split window
@@ -202,7 +203,7 @@ autocmd BufWritePost *.php call UpdateTags()
 " filetype
 autocmd FileType php setlocal sw=4 sts=4 ts=4
 " autocmd BufNewFile,BufRead *.vue setlocal ft=javascript
-" autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
+autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 
 " auto complete
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
@@ -249,12 +250,12 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " indentLine
-" let g:indentLine_enabled=1
-" let g:indentLine_faster=1
-" let g:indentLine_char='┆'
-" let g:indentLine_first_char='┆'
-" let g:indentLine_color_term=239
-" let g:indentLine_showFirstIndentLevel=1
+let g:indentLine_enabled=1
+let g:indentLine_faster=1
+let g:indentLine_char='┆'
+let g:indentLine_first_char='┆'
+let g:indentLine_color_term=239
+let g:indentLine_showFirstIndentLevel=1
 
 " php cs fixer
 let g:php_cs_fixer_level='psr2'
@@ -450,3 +451,9 @@ autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
 " neocomplete
 " inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : '\<CR>'
 " inoremap <expr><TAB> pumvisible() ? '\<C-n>' : '\<TAB>'
+
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-m>'
+
+" 自動先將tab轉換成space4
+:autocmd BufRead * :retab
