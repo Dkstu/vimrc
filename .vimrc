@@ -250,12 +250,12 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " indentLine
-" let g:indentLine_enabled=1
-" let g:indentLine_faster=1
-" let g:indentLine_char='┆'
-" let g:indentLine_first_char='┆'
-" let g:indentLine_color_term=239
-" let g:indentLine_showFirstIndentLevel=1
+let g:indentLine_enabled=1
+let g:indentLine_faster=1
+let g:indentLine_char='┆'
+let g:indentLine_first_char='┆'
+let g:indentLine_color_term=239
+let g:indentLine_showFirstIndentLevel=1
 
 " php cs fixer
 let g:php_cs_fixer_level='psr2'
@@ -454,7 +454,6 @@ autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
 
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-m>'
-
 
 " 自動先將tab轉換成space4
 :autocmd BufRead * :retab
