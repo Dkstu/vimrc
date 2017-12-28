@@ -472,9 +472,6 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-m>'
 
 " 自動先將tab轉換成space4
-<<<<<<< HEAD
-autocmd BufRead * :retab
-=======
 " autocmd BufRead * :retab
 
 " autocmd FileType html :Autoformat
@@ -491,4 +488,3 @@ autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
->>>>>>> 0fe78635da11e7819c76e4020ff6997f3bc026e8
