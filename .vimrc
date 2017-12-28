@@ -11,6 +11,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plgins
+
+" Common
 Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -29,29 +31,39 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
+" PHP
+Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'stephpy/vim-php-cs-fixer'
-" Plugin 'lvht/phpcd.vim'
+Plugin 'lvht/phpcd.vim'
 
+" Javascript
+Plugin 'pangloss/vim-javascript'
+
+" CSS
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'wavded/vim-stylus'
+Plugin 'ap/vim-css-color'
+
+" Other
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'tpope/vim-haml'
 " Plugin 'jwalton512/vim-blade'
 
-Plugin 'pangloss/vim-javascript'
-" Plugin 'kchmck/vim-coffee-script'
-
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'wavded/vim-stylus'
-
-" Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
 
 Plugin 'storyn26383/vim-vue'
 
 Plugin 'scrooloose/syntastic'
+
+" Git
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+
+" 排版
+Plugin 'Chiel92/vim-autoformat'
+
 Plugin 'mileszs/ack.vim'
 
 " Plugin 'm2mdas/phpcomplete-extended'
@@ -280,7 +292,7 @@ let g:SuperTabCrMapping=1
 " let g:SuperTabContextDefaultCompletionType='<C-X><C-O>'
 
 " tcomment
-call tcomment#DefineType('pug', '//- %s')
+" call tcomment#DefineType('pug', '//- %s')
 
 " php namespace
 let g:php_namespace_sort="'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
@@ -456,4 +468,4 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-m>'
 
 " 自動先將tab轉換成space4
-:autocmd BufRead * :retab
+autocmd BufRead * :retab
