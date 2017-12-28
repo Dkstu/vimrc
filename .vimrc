@@ -52,6 +52,7 @@ Plugin 'storyn26383/vim-vue'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
 
 " Plugin 'm2mdas/phpcomplete-extended'
@@ -62,6 +63,10 @@ Plugin 'mileszs/ack.vim'
 " Plugin 'Shougo/neosnippet.vim'
 " Plugin 'Shougo/neosnippet-snippets'
 " Plugin 'Valloric/YouCompleteMe'
+"
+
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'Chiel92/vim-autoformat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()                    " required
@@ -198,7 +203,7 @@ function! UpdateTags()
   endif
 endfunction
 
-autocmd BufWritePost *.php call UpdateTags()
+" autocmd BufWritePost *.php call UpdateTags()
 
 " filetype
 autocmd FileType php setlocal sw=4 sts=4 ts=4
@@ -456,4 +461,19 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-m>'
 
 " 自動先將tab轉換成space4
-:autocmd BufRead * :retab
+" autocmd BufRead * :retab
+
+" autocmd FileType html :Autoformat
+"
+vmap <leader>jsb :'<,'>!js-beautify -i<CR>
+autocmd FileType javascript noremap <buffer>  <leader>jsb :call JsBeautify()<CR>
+autocmd FileType js noremap <buffer>  <leader>jsb :call JsBeautify()<CR>
+autocmd FileType html noremap <buffer> <leader>htmlb :call HtmlBeautify()<CR>
+autocmd FileType css noremap <buffer> <leader>cssb :call CSSBeautify()<CR>
+
+".vimrc
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
