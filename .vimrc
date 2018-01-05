@@ -319,7 +319,7 @@ let g:php_namespace_sort_after_insert=1
 " let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\h\w*\|\h\w*::'
 
 " emmet
-let g:user_emmet_leader_key=','
+" let g:user_emmet_leader_key=','
 
 " vue
 let g:tcommentGuessFileType_vue = 'pug'
@@ -335,8 +335,8 @@ endif
 " =================
 
 " leader key
-let mapleader=','
-let g:mapleader=','
+let mapleader='z'
+let g:mapleader='z'
 
 " do not use the error keys
 " map <BS> <NOP>
