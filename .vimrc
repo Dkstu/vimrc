@@ -40,6 +40,9 @@ Plugin 'lvht/phpcd.vim'
 " Javascript
 Plugin 'pangloss/vim-javascript'
 
+" TypeScript
+Plugin 'leafgarland/typescript-vim'
+
 " CSS
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -65,6 +68,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'mileszs/ack.vim'
+
+Plugin 'shawncplus/phpcomplete.vim'
 
 " Plugin 'm2mdas/phpcomplete-extended'
 " Plugin 'm2mdas/phpcomplete-extended-laravel'
@@ -375,8 +380,12 @@ nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
 " ctags
 nmap <Leader>c :!ctags --recurse --kinds-php=citf &<CR>
 
-" close buffer
-nmap <Leader>w :bd<CR>
+" Buffer
+" close
+nmap <S-w> :bd<CR>
+" switch
+nmap <S-Left> :bprev<CR>
+nmap <S-Right> :bnext<CR>
 
 " fold
 nmap <Leader>k1 :set foldlevel=0<CR>
@@ -412,10 +421,6 @@ nmap <C-j> mz:m+<CR>`z
 nmap <C-k> mz:m-2<CR>`z
 vmap <C-j> :m'>+<CR>`<my`>mzgv`yo`z
 vmap <C-k> :m'<-2<CR>`>my`<mzgv`yo`z
-
-" move to the prev or next buffer using ctrl+[hl]
-nmap <C-h> :bprevious<CR>
-nmap <C-l> :bnext<CR>
 
 " cancel searched highlight
 noremap <Leader><Space> :nohlsearch<CR>
@@ -471,19 +476,24 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-m>'
 
 " 自動先將tab轉換成space4
-" autocmd BufRead * :retab
+autocmd BufRead * :retab
 
 " autocmd FileType html :Autoformat
-"
+
 vmap <leader>jsb :'<,'>!js-beautify -i<CR>
 autocmd FileType javascript noremap <buffer>  <leader>jsb :call JsBeautify()<CR>
 autocmd FileType js noremap <buffer>  <leader>jsb :call JsBeautify()<CR>
+autocmd FileType ts noremap <buffer>  <leader>jsb :call JsBeautify()<CR>
 autocmd FileType html noremap <buffer> <leader>htmlb :call HtmlBeautify()<CR>
 autocmd FileType css noremap <buffer> <leader>cssb :call CSSBeautify()<CR>
 
 ".vimrc
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType ts vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
